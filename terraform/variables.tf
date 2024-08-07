@@ -4,16 +4,6 @@ variable "aws_region" {
 }
 
 
-variable "AWS_ACCESS_KEY" {
-  description = "The AWS access key for the provider"
-  type        = string
-}
-
-variable "AWS_SECRET_KEY" {
-  description = "The AWS secret key for the provider"
-  type        = string
-}
-
 variable "ami" {
   description = "The AMI ID to use for the instance"
   type        = string
