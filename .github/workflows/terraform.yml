@@ -1,8 +1,10 @@
 name: Terraform AWS EC2 Deployment
+
 on:
   push:
     branches:
       - main
+
 jobs:
   terraform:
     runs-on: ubuntu-latest
@@ -21,18 +23,9 @@ jobs:
           echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY }}" >> $GITHUB_ENV
           echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_KEY }}" >> $GITHUB_ENV
 
-      - name: Print environment variables
-        run: |
-          echo "AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY }}"
-          echo "AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_KEY }}"
-
       - name: Terraform Init
         working-directory: ./terraform
         run: terraform init
-
-      - name: Terraform Plan
-        working-directory: ./terraform
-        run: terraform plan
 
       - name: Terraform Apply
         working-directory: ./terraform
