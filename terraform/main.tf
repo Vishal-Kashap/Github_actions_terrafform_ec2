@@ -9,7 +9,7 @@ resource "random_id" "name_suffix" {
 }
 
 data "local_file" "userdata" {
-  filename = "${path.module}/userdata.sh"
+  filename = "${path.module}/user-data.sh"
 }
 
 resource "aws_instance" "ec2" {
